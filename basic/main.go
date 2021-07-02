@@ -19,6 +19,11 @@ func main() {
 	for _, value := range userA.Skills {
 		fmt.Println(value)
 	}
+
+	var newSkills = append(userA.Skills, "Java")
+
+	fmt.Println(newSkills[len(newSkills)-1])
+	fmt.Println(newSkills[2:]) // Range newSkills[1:3]
 }
 
 func getName() (string, int) {
