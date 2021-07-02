@@ -31,6 +31,28 @@ func main() {
 	greeting := "Hello there"
 	fmt.Println(strings.Contains(greeting, "Hello"))
 	fmt.Println(strings.ReplaceAll(greeting, "Hello", "hi"))
+
+	users := map[int]Person{
+		1: {
+			Id:     1,
+			Name:   "Sirwan",
+			Age:    32,
+			Skills: []string{"JS", "Go", "C#", "Kotlin", "Swift"},
+		},
+	}
+
+	for k, v := range users {
+		fmt.Println(k, v)
+	}
+
+	phonebooks := map[int]string{
+		1232434: "Sirwan",
+		3434454: "UserA",
+	}
+
+	for k, v := range phonebooks {
+		fmt.Println(k, v)
+	}
 }
 
 func getName() (string, int) {
