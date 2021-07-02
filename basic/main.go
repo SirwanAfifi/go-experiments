@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	// name, age := getName()
@@ -24,6 +27,10 @@ func main() {
 
 	fmt.Println(newSkills[len(newSkills)-1])
 	fmt.Println(newSkills[2:]) // Range newSkills[1:3]
+
+	greeting := "Hello there"
+	fmt.Println(strings.Contains(greeting, "Hello"))
+	fmt.Println(strings.ReplaceAll(greeting, "Hello", "hi"))
 }
 
 func getName() (string, int) {
