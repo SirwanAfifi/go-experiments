@@ -14,9 +14,16 @@ Ken,Thompson,ken
 
 	r := csv.NewReader(strings.NewReader(in))
 
+	r.Read()
 	recordOne, _ := r.Read()
 	recordTwo, _ := r.Read()
+	recordThree, _ := r.Read()
 
-	fmt.Println(recordOne)
-	fmt.Println(recordTwo)
+	printRecord(recordOne)
+	printRecord(recordTwo)
+	printRecord(recordThree)
+}
+
+func printRecord(record []string) {
+	fmt.Println(record)
 }
