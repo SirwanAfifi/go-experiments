@@ -25,11 +25,23 @@ func main() {
 	url := flag.String("url", "localhost:8888/api/users", "URL To Resource")
 	flag.Parse()
 
+	result, err := getUsers(*url)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, u := range result.Posts {
+		fmt.Printf("User ID: %s - Full Name: %s\n", u.Id, u.Name)
+	}
+}
+
+func getUsers(apiURL string) (response, error) {
 	client := http.Client {
 		Timeout: time.Second * 2,
 	}
 
-	req, err := http.NewRequest(http.MethodGet, *url, nil)
+	req, err := http.NewRequest(http.MethodGet, apiURL, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -56,7 +68,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	for _, u := range result.Posts {
-		fmt.Printf("User ID: %s - Full Name: %s\n", u.Id, u.Name)
-	}
+	return result, nil
 }
